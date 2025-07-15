@@ -556,6 +556,9 @@ class TaxonomyHandler
 
     public function __get($taxonomy)
     {
+        if(empty($this->taxonomies)) {
+            return null;
+        }
         if (!in_array($taxonomy, $this->taxonomies)) {
             return null;
         }
@@ -565,6 +568,9 @@ class TaxonomyHandler
 
     public function __isset($taxonomy)
     {
+        if(empty($this->taxonomies)) {
+            return null;
+        }
         return in_array($taxonomy, $this->taxonomies);
     }
 
